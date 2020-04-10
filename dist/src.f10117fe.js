@@ -85128,6 +85128,41 @@ function () {
 }();
 
 exports.User = User;
+},{"faker":"node_modules/faker/index.js"}],"src/Company.ts":[function(require,module,exports) {
+"use strict";
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+  }
+  result["default"] = mod;
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var faker = __importStar(require("faker"));
+
+var Company =
+/** @class */
+function () {
+  function Company() {
+    this.companyName = faker.company.companyName();
+    this.catchPhrase = faker.company.catchPhrase();
+    this.location = {
+      lat: parseFloat(faker.address.latitude()),
+      lng: parseFloat(faker.address.longitude())
+    };
+  }
+
+  return Company;
+}();
+
+exports.Company = Company;
 },{"faker":"node_modules/faker/index.js"}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
@@ -85137,9 +85172,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var User_1 = require("./User");
 
+var Company_1 = require("./Company");
+
 var user = new User_1.User();
+var company = new Company_1.Company();
 console.log('user', user);
-},{"./User":"src/User.ts"}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+console.log('company', company);
+},{"./User":"src/User.ts","./Company":"src/Company.ts"}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
